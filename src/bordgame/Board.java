@@ -60,7 +60,11 @@ public class Board {
 	}
 	
 	private boolean positionExists(int row, int column) {
-		return row >= 0 && row < rows && column >=0 && column < columns; 
+		boolean x = row >= 0;
+		boolean y = row < rows;
+		boolean z = column >=0;
+		boolean w = column < columns;
+		return x && y && z && w; 
 	}
 	
 	public boolean positionExists(Position position) {
@@ -71,7 +75,8 @@ public class Board {
 		if (!positionExists(position)) {
 			throw new BoardException("Position not on the board");
 		}
-		return piece(position) != null;
+		Piece p = piece(position);
+		return p != null;
 	}
 	
 }
